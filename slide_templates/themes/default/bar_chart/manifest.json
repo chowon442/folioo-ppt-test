@@ -1,0 +1,106 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "bar_chart",
+  "name": "막대 그래프 슬라이드",
+  "description": "비율·점유율·기술 숙련도·업무 비중 등을 chart 노드와 JSON payload로 시각화한다.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "shape",
+    "text",
+    "chart",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "title",
+    "subtitle",
+    "chart",
+    "footnote",
+    "panel"
+  ],
+  "allowedClasses": [],
+  "defaultExport": {
+    "layout": "ignore",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "chart": "native>svg>png",
+    "flatten": "png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "title": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true,
+      "minFontPx": 28,
+      "maxFontPx": 40
+    },
+    "subtitle": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": false,
+      "minFontPx": 13,
+      "maxFontPx": 16
+    },
+    "chart": {
+      "kind": "chart",
+      "required": true
+    },
+    "footnote": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": false,
+      "minFontPx": 11,
+      "maxFontPx": 13
+    },
+    "panel": {
+      "kind": "shape",
+      "export": "native"
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    },
+    "subtitle-main": {
+      "idx": 1,
+      "kind": "text",
+      "name": "subtitle-main"
+    },
+    "chart-main": {
+      "idx": 2,
+      "kind": "chart",
+      "name": "chart-main"
+    },
+    "footnote-main": {
+      "idx": 3,
+      "kind": "text",
+      "name": "footnote-main"
+    }
+  },
+  "assets": {},
+  "chartTemplates": {
+    "bar-01": {
+      "kind": "bar",
+      "description": "기본 가로 막대 차트"
+    }
+  },
+  "pptxTemplate": "pptx/default.pptx",
+  "placeholderMap": {
+    "title": "title-main",
+    "subtitle": "subtitle-main",
+    "chart": "chart-main",
+    "footnote": "footnote-main"
+  }
+}

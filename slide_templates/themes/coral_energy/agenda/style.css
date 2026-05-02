@@ -1,0 +1,85 @@
+/* coral_energy: 자동 번호(카운터) + 가로 풀폭 행 */
+.slide[data-template="agenda"].slide--agenda-pills {
+    background: linear-gradient(180deg, #1c1917 0%, #292524 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 56px;
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 920px;
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #fafaf9;
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 22px;
+    min-height: 76px;
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-item-panel {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(251, 146, 60, 0.25);
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.2);
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-item-marker {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #1c1917;
+    background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+    border-radius: 10px;
+    line-height: 1;
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-item-marker p {
+    margin: 0;
+}
+
+.slide[data-template="agenda"].slide--agenda-pills .agenda-item-text,
+.slide[data-template="agenda"].slide--agenda-pills .agenda-item-text p {
+    position: relative;
+    z-index: 1;
+    font-size: 17px;
+    font-weight: 600;
+    color: #e7e5e4;
+    margin: 0;
+}

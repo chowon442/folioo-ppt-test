@@ -1,0 +1,96 @@
+/* paper_light: 상단 풀폭 타이틀 + 비대칭 42/58 2단 */
+.slide[data-template="two_column"].slide--tc-asymmetric {
+    background: #fafaf9;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-top {
+    padding: 28px 52px 22px;
+    border-bottom: 2px solid #1c1917;
+    background: #ffffff;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1c1917;
+    letter-spacing: -0.02em;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-title p,
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-left p,
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-right p,
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-footnote p {
+    margin: 0;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-left p + p,
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-right p + p {
+    margin-top: 12px;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 0.42fr 14px 0.58fr;
+    gap: 0;
+    min-height: 0;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-left-col,
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-right-col {
+    position: relative;
+    min-height: 100%;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-left-panel,
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-right-panel {
+    position: absolute;
+    inset: 0;
+    border-radius: 0;
+    background: #fafaf9;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-right-panel {
+    background: #ffffff;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-left {
+    position: relative;
+    z-index: 1;
+    padding: 32px 36px 36px 52px;
+    font-size: 15px;
+    color: #44403c;
+    line-height: 1.7;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-right {
+    position: relative;
+    z-index: 1;
+    padding: 32px 52px 36px 36px;
+    font-size: 15px;
+    color: #292524;
+    line-height: 1.7;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-divider {
+    width: 1px;
+    align-self: stretch;
+    background: #e7e5e4;
+    justify-self: center;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-footer {
+    padding: 12px 52px 20px;
+    border-top: 1px solid #e7e5e4;
+    background: #f5f5f4;
+}
+
+.slide[data-template="two_column"].slide--tc-asymmetric .tc-footnote {
+    font-size: 12px;
+    font-weight: 600;
+    color: #78716c;
+}

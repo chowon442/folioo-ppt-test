@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/slidehtml.layout-snapshot.schema.json",
+  "title": "SlideHTML Layout Snapshot",
+  "type": "object",
+  "required": ["dsl", "slides"],
+  "properties": {
+    "dsl": { "const": "slidehtml/v1" },
+    "slides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "template", "nodes"],
+        "properties": {
+          "id": { "type": "string" },
+          "template": { "type": "string" },
+          "bgColor": { "type": ["string", "null"] },
+          "bgGradient": { "type": ["object", "null"] },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "kind", "export", "z", "box"],
+              "properties": {
+                "id": { "type": "string" },
+                "kind": {
+                  "enum": ["layout", "group", "text", "shape", "image", "chart", "table", "line", "svg", "flatten", "notes"]
+                },
+                "role": { "type": ["string", "null"] },
+                "export": { "type": "string" },
+                "fallback": { "type": ["string", "null"] },
+                "placeholder": { "type": ["string", "null"] },
+                "z": { "type": "integer" },
+                "rotation": { "type": "number" },
+                "box": {
+                  "type": "object",
+                  "required": ["left", "top", "width", "height"],
+                  "properties": {
+                    "left": { "type": "number" },
+                    "top": { "type": "number" },
+                    "width": { "type": "number" },
+                    "height": { "type": "number" }
+                  }
+                },
+                "padding": { "type": ["object", "null"] },
+                "fill": { "type": ["object", "null"] },
+                "stroke": { "type": ["object", "null"] },
+                "backgroundColor": { "type": ["string", "null"] },
+                "opacity": { "type": ["number", "null"] },
+                "border": { "type": ["object", "null"] },
+                "borderRadiusPx": { "type": ["number", "null"] },
+                "textStyle": { "type": ["object", "null"] },
+                "paragraphSpacingPx": { "type": ["number", "null"] },
+                "lineHeightPx": { "type": ["number", "null"] },
+                "letterSpacingPx": { "type": ["number", "null"] },
+                "verticalAlign": { "type": ["string", "null"] },
+                "minFont": { "type": ["string", "null"] },
+                "maxFont": { "type": ["string", "null"] },
+                "src": { "type": ["string", "null"] },
+                "renderedSrc": { "type": ["string", "null"] },
+                "renderedMimeType": { "type": ["string", "null"] },
+                "cropMode": { "type": ["string", "null"] },
+                "focalPoint": { "type": ["object", "null"] },
+                "chartTemplate": { "type": ["string", "null"] },
+                "chartKind": { "type": ["string", "null"] },
+                "shapeType": { "type": ["string", "null"] },
+                "lineType": { "type": ["string", "null"] },
+                "lineFrom": { "type": ["string", "null"] },
+                "lineTo": { "type": ["string", "null"] },
+                "arrowStart": { "type": ["string", "null"] },
+                "arrowEnd": { "type": ["string", "null"] },
+                "from": { "type": ["string", "null"] },
+                "to": { "type": ["string", "null"] },
+                "tableRows": { "type": ["array", "null"] },
+                "chartData": { "type": ["object", "null"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

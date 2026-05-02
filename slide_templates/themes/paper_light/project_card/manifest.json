@@ -1,0 +1,141 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "project_card",
+  "name": "프로젝트 카드 슬라이드",
+  "description": "프로젝트 이름, 요약, 메타, 기술 스택, highlights를 group 구조로 표시한다.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "chart",
+    "table",
+    "line",
+    "svg",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "project-name",
+    "summary",
+    "role",
+    "period",
+    "separator",
+    "tech-stack",
+    "tech-chip",
+    "chip-text",
+    "highlights",
+    "highlight-card",
+    "highlight-text"
+  ],
+  "defaultExport": {
+    "layout": "ignore",
+    "group": "native>png",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "svg": "svg>png",
+    "flatten": "svg>png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "project-name": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true
+    },
+    "summary": {
+      "kind": "text",
+      "maxLines": 4,
+      "fit": "truncate",
+      "required": true
+    },
+    "role": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": false
+    },
+    "period": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": false
+    },
+    "separator": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": false
+    },
+    "tech-stack": {
+      "kind": "group",
+      "required": false
+    },
+    "tech-chip": {
+      "kind": "group",
+      "required": false
+    },
+    "chip-text": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": false
+    },
+    "highlights": {
+      "kind": "group",
+      "required": false
+    },
+    "highlight-card": {
+      "kind": "group",
+      "required": false
+    },
+    "highlight-text": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "truncate",
+      "required": false
+    }
+  },
+  "placeholders": {
+    "project-name-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "project-name-main"
+    },
+    "summary-main": {
+      "idx": 1,
+      "kind": "text",
+      "name": "summary-main"
+    },
+    "role-main": {
+      "idx": 2,
+      "kind": "text",
+      "name": "role-main"
+    },
+    "period-main": {
+      "idx": 3,
+      "kind": "text",
+      "name": "period-main"
+    }
+  },
+  "assets": {},
+  "pptxTemplate": "pptx/paper_light.pptx",
+  "placeholderMap": {
+    "project-name": "project-name-main",
+    "summary": "summary-main",
+    "role": "role-main",
+    "period": "period-main"
+  }
+}

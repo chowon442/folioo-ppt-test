@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>슬라이드 미리보기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <style>
+        {{ all_css | safe }}
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #1a1a2e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 40px;
+            font-family: 'Pretendard', sans-serif;
+        }
+        .slide-wrapper {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .page-info {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    {% for slide_html in slides %}
+    <div class="slide-wrapper">
+        {{ slide_html | safe }}
+    </div>
+    <div class="page-info">{{ loop.index }} / {{ total }}</div>
+    {% endfor %}
+</body>
+</html>

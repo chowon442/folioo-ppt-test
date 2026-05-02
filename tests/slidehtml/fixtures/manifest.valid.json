@@ -1,0 +1,156 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "fixture-deck",
+  "name": "Fixture Deck",
+  "description": "Strict SlideHTML validator fixture deck.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4,
+    "safeArea": [48, 40, 1184, 640]
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "svg",
+    "chart",
+    "table",
+    "line",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "title",
+    "subtitle",
+    "author",
+    "table-title",
+    "table-note",
+    "metrics-table",
+    "chart-title",
+    "chart-note",
+    "chart"
+  ],
+  "allowedClasses": [
+    "tpl-fixture",
+    "tpl-fixture-slide",
+    "tok-text-title-xl",
+    "tok-text-body-md",
+    "tok-fill-surface-1"
+  ],
+  "defaultExport": {
+    "layout": "ignore",
+    "group": "native>png",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "svg": "svg>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "flatten": "svg>png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "title": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "tokenClass": "tok-text-title-xl",
+      "export": "native>png",
+      "required": true
+    },
+    "subtitle": {
+      "kind": "text",
+      "maxLines": 3,
+      "fit": "truncate",
+      "tokenClass": "tok-text-body-md",
+      "export": "native>png"
+    },
+    "author": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "none",
+      "export": "native>png"
+    },
+    "table-title": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "export": "native>png"
+    },
+    "table-note": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "none",
+      "export": "native>png"
+    },
+    "metrics-table": {
+      "kind": "table",
+      "export": "native>png",
+      "required": true
+    },
+    "chart-title": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "export": "native>png"
+    },
+    "chart-note": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "none",
+      "export": "native>png"
+    },
+    "chart": {
+      "kind": "chart",
+      "export": "native>svg>png",
+      "required": true
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    },
+    "subtitle-main": {
+      "idx": 1,
+      "kind": "text",
+      "name": "subtitle-main"
+    },
+    "author-main": {
+      "idx": 2,
+      "kind": "text",
+      "name": "author-main"
+    },
+    "table-main": {
+      "idx": 3,
+      "kind": "table",
+      "name": "table-main"
+    },
+    "chart-main": {
+      "idx": 4,
+      "kind": "chart",
+      "name": "chart-main"
+    }
+  },
+  "pptxTemplate": "pptx/fixture-deck.pptx",
+  "placeholderMap": {
+    "title": "title-main",
+    "subtitle": "subtitle-main",
+    "author": "author-main",
+    "metrics-table": "table-main",
+    "chart": "chart-main"
+  },
+  "assets": {},
+  "chartTemplates": {
+    "bar-01": {
+      "kind": "bar",
+      "description": "Basic bar chart"
+    }
+  }
+}

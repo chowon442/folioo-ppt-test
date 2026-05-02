@@ -1,0 +1,101 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "metrics_table",
+  "name": "지표·비교 표 슬라이드",
+  "description": "KPI, 수치, 기간·스펙 비교, 기술 스택 대조 등을 표로 정리한다.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "shape",
+    "text",
+    "table",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "title",
+    "subtitle",
+    "table",
+    "footnote",
+    "panel"
+  ],
+  "allowedClasses": [],
+  "defaultExport": {
+    "layout": "ignore",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "table": "native>png",
+    "flatten": "png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "title": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true,
+      "minFontPx": 28,
+      "maxFontPx": 40
+    },
+    "subtitle": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": false,
+      "minFontPx": 13,
+      "maxFontPx": 16
+    },
+    "table": {
+      "kind": "table",
+      "required": true
+    },
+    "footnote": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": false,
+      "minFontPx": 11,
+      "maxFontPx": 13
+    },
+    "panel": {
+      "kind": "shape",
+      "export": "native"
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    },
+    "subtitle-main": {
+      "idx": 1,
+      "kind": "text",
+      "name": "subtitle-main"
+    },
+    "table-main": {
+      "idx": 2,
+      "kind": "table",
+      "name": "table-main"
+    },
+    "footnote-main": {
+      "idx": 3,
+      "kind": "text",
+      "name": "footnote-main"
+    }
+  },
+  "assets": {},
+  "chartTemplates": {},
+  "pptxTemplate": "pptx/paper_light.pptx",
+  "placeholderMap": {
+    "title": "title-main",
+    "subtitle": "subtitle-main",
+    "table": "table-main",
+    "footnote": "footnote-main"
+  }
+}

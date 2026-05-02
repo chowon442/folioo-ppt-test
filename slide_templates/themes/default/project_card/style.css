@@ -1,0 +1,166 @@
+.slide[data-template="project_card"] {
+    background: #fafbfc;
+    display: flex;
+}
+
+.slide[data-template="project_card"] .pc-sidebar,
+.slide[data-template="project_card"] .pc-main {
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.slide[data-template="project_card"] .pc-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.slide[data-template="project_card"] .pc-sidebar-panel {
+    position: absolute;
+    inset: 0;
+    background: #1e293b;
+}
+
+.slide[data-template="project_card"] .pc-meta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 16px;
+}
+
+.slide[data-template="project_card"] .pc-meta-strip {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+}
+
+.slide[data-template="project_card"] .pc-role,
+.slide[data-template="project_card"] .pc-period,
+.slide[data-template="project_card"] .pc-tech,
+.slide[data-template="project_card"] .pc-tech-item,
+.slide[data-template="project_card"] .pc-highlight-card,
+.slide[data-template="project_card"] .pc-main-panel,
+.slide[data-template="project_card"] .pc-sidebar-panel {
+    position: relative;
+    z-index: 1;
+}
+
+.slide[data-template="project_card"] .pc-role {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a5b4fc;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.slide[data-template="project_card"] .pc-period {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.slide[data-template="project_card"] .pc-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.slide[data-template="project_card"] .pc-tech-item {
+    display: inline-flex;
+    position: relative;
+}
+
+.slide[data-template="project_card"] .pc-tech-chip-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+}
+
+.slide[data-template="project_card"] .pc-tech-text {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.slide[data-template="project_card"] .pc-tech-text p,
+.slide[data-template="project_card"] .pc-highlight-text p {
+    margin: 0;
+}
+
+.slide[data-template="project_card"] .pc-main {
+    flex: 1;
+    padding: 56px 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide[data-template="project_card"] .pc-main-panel {
+    position: absolute;
+    inset: 0;
+    background: #fafbfc;
+}
+
+.slide[data-template="project_card"] .pc-name {
+    position: relative;
+    z-index: 1;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.slide[data-template="project_card"] .pc-summary {
+    position: relative;
+    z-index: 1;
+    font-size: 17px;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.slide[data-template="project_card"] .pc-highlights {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slide[data-template="project_card"] .pc-highlight-card {
+    position: relative;
+    padding: 10px 16px;
+    min-height: 0;
+}
+
+.slide[data-template="project_card"] .pc-highlight-card-bg {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    border-left: 3px solid #6366f1;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.slide[data-template="project_card"] .pc-highlight-text {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    color: #334155;
+}
+
+.slide[data-template="project_card"] .pc-highlight-text strong {
+    font-weight: 600;
+    color: #1e293b;
+}

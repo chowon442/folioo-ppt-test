@@ -1,0 +1,117 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "cover",
+  "name": "Cover Fixture",
+  "description": "Strict cover manifest fixture.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4,
+    "safeArea": [48, 40, 1184, 640]
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "svg",
+    "chart",
+    "table",
+    "line",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "title",
+    "subtitle",
+    "author",
+    "background",
+    "accent",
+    "panel"
+  ],
+  "allowedClasses": [
+    "slide--cover-default",
+    "cover-bg",
+    "cover-accent",
+    "cover-accent--stripe",
+    "cover-accent--orb",
+    "cover-panel",
+    "cover-content",
+    "cover-title",
+    "cover-subtitle",
+    "cover-author"
+  ],
+  "defaultExport": {
+    "layout": "ignore",
+    "group": "native>png",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "svg": "svg>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "flatten": "svg>png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "title": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "export": "native>png",
+      "required": true
+    },
+    "subtitle": {
+      "kind": "text",
+      "maxLines": 3,
+      "fit": "truncate",
+      "export": "native>png"
+    },
+    "author": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "none",
+      "export": "native>png"
+    },
+    "background": {
+      "kind": "flatten",
+      "export": "svg>png"
+    },
+    "accent": {
+      "kind": "shape",
+      "export": "native>svg>png"
+    },
+    "panel": {
+      "kind": "shape",
+      "export": "native>svg>png"
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    },
+    "subtitle-main": {
+      "idx": 1,
+      "kind": "text",
+      "name": "subtitle-main"
+    },
+    "author-main": {
+      "idx": 2,
+      "kind": "text",
+      "name": "author-main"
+    }
+  },
+  "pptxTemplate": "pptx/cover-fixture.pptx",
+  "placeholderMap": {
+    "title": "title-main",
+    "subtitle": "subtitle-main",
+    "author": "author-main"
+  },
+  "assets": {},
+  "chartTemplates": {}
+}

@@ -1,0 +1,67 @@
+<article class="sh-deck tpl-fixture" data-sh-dsl="slidehtml/v1">
+  <section class="slide sh-slide tpl-fixture-slide" data-template="fixture-deck" data-sh-id="slide-1" data-sh-template="fixture-deck" data-sh-size="1280x720">
+    <div class="sh-node tok-fill-surface-1" data-sh-id="bg-1" data-sh-kind="flatten" data-sh-export="png">
+      <svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="0" y="0" width="1280" height="720" fill="#0f172a" />
+      </svg>
+    </div>
+    <div class="sh-node tok-text-title-xl" data-sh-id="title-1" data-sh-kind="text" data-sh-role="title" data-sh-export="native" data-sh-fit="shrink" data-sh-max-lines="2">
+      <p><span>SlideHTML DSL fixture</span></p>
+    </div>
+    <div class="sh-node tok-text-body-md" data-sh-id="subtitle-1" data-sh-kind="text" data-sh-role="subtitle" data-sh-export="native" data-sh-fit="truncate" data-sh-max-lines="3">
+      <p><span>Valid deck with text, table, chart, and flatten nodes.</span></p>
+    </div>
+    <div class="sh-node" data-sh-id="author-1" data-sh-kind="text" data-sh-role="author" data-sh-export="native" data-sh-fit="none" data-sh-max-lines="1">
+      <p><span>Codex</span></p>
+    </div>
+  </section>
+
+  <section class="slide sh-slide tpl-fixture-slide" data-template="fixture-deck" data-sh-id="slide-2" data-sh-template="fixture-deck" data-sh-size="1280x720">
+    <div class="sh-node" data-sh-id="table-title-1" data-sh-kind="text" data-sh-role="table-title" data-sh-export="native" data-sh-fit="shrink" data-sh-max-lines="1">
+      <p><span>Metrics table</span></p>
+    </div>
+    <table class="sh-node" data-sh-id="table-1" data-sh-kind="table" data-sh-role="metrics-table" data-sh-export="native">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Speed</td>
+          <td><strong>42%</strong></td>
+        </tr>
+        <tr>
+          <td>Coverage</td>
+          <td><span>90%</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="sh-node" data-sh-id="table-note-1" data-sh-kind="text" data-sh-role="table-note" data-sh-export="native" data-sh-fit="none" data-sh-max-lines="1">
+      <p><span>Example note</span></p>
+    </div>
+  </section>
+
+  <section class="slide sh-slide tpl-fixture-slide" data-template="fixture-deck" data-sh-id="slide-3" data-sh-template="fixture-deck" data-sh-size="1280x720">
+    <div class="sh-node" data-sh-id="chart-title-1" data-sh-kind="text" data-sh-role="chart-title" data-sh-export="native" data-sh-fit="shrink" data-sh-max-lines="1">
+      <p><span>Chart fixture</span></p>
+    </div>
+    <div class="sh-node" data-sh-id="chart-1" data-sh-kind="chart" data-sh-role="chart" data-sh-export="native" data-sh-chart-kind="bar" data-sh-chart-template="bar-01">
+      <script type="application/json">
+        {
+          "categories": ["A", "B", "C"],
+          "series": [
+            {
+              "name": "Value",
+              "values": [1, 2, 3]
+            }
+          ]
+        }
+      </script>
+    </div>
+    <div class="sh-node" data-sh-id="chart-note-1" data-sh-kind="text" data-sh-role="chart-note" data-sh-export="native" data-sh-fit="none" data-sh-max-lines="1">
+      <p><span>Example chart note</span></p>
+    </div>
+  </section>
+</article>

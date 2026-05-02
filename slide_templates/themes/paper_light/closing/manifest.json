@@ -1,0 +1,99 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "closing",
+  "name": "마무리 슬라이드",
+  "description": "프레젠테이션 마무리. 감사 인사, 연락처, 한 줄 메시지를 표시.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "chart",
+    "table",
+    "line",
+    "svg",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "message",
+    "subtitle",
+    "contact",
+    "background",
+    "accent",
+    "panel"
+  ],
+  "defaultExport": {
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "svg": "svg>png",
+    "flatten": "svg>png"
+  },
+  "roles": {
+    "message": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true
+    },
+    "subtitle": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "truncate",
+      "required": false
+    },
+    "contact": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": false
+    },
+    "background": {
+      "kind": "flatten",
+      "export": "flatten"
+    },
+    "accent": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "panel": {
+      "kind": "shape",
+      "export": "native"
+    }
+  },
+  "placeholders": {
+    "message-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "message-main"
+    },
+    "subtitle-main": {
+      "idx": 1,
+      "kind": "text",
+      "name": "subtitle-main"
+    },
+    "contact-main": {
+      "idx": 2,
+      "kind": "text",
+      "name": "contact-main"
+    }
+  },
+  "assets": {},
+  "pptxTemplate": "pptx/paper_light.pptx",
+  "placeholderMap": {
+    "message": "message-main",
+    "subtitle": "subtitle-main",
+    "contact": "contact-main"
+  }
+}

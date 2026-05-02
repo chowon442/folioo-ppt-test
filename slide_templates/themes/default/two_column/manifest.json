@@ -1,0 +1,123 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "two_column",
+  "name": "2단 정보 슬라이드",
+  "description": "좌우 2단 레이아웃을 text와 shape 노드로 구성한다.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "chart",
+    "table",
+    "line",
+    "svg",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "title",
+    "left-content",
+    "right-content",
+    "footnote",
+    "divider",
+    "accent-line",
+    "panel"
+  ],
+  "defaultExport": {
+    "layout": "ignore",
+    "group": "native>png",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "svg": "svg>png",
+    "flatten": "svg>png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "title": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true,
+      "minFontPx": 28,
+      "maxFontPx": 38
+    },
+    "left-content": {
+      "kind": "text",
+      "maxLines": 6,
+      "fit": "shrink",
+      "required": true,
+      "minFontPx": 15,
+      "maxFontPx": 18
+    },
+    "right-content": {
+      "kind": "text",
+      "maxLines": 6,
+      "fit": "shrink",
+      "required": true,
+      "minFontPx": 15,
+      "maxFontPx": 18
+    },
+    "footnote": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": false,
+      "minFontPx": 11,
+      "maxFontPx": 13
+    },
+    "divider": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "accent-line": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "panel": {
+      "kind": "shape",
+      "export": "native"
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    },
+    "left-main": {
+      "idx": 1,
+      "kind": "text",
+      "name": "left-main"
+    },
+    "right-main": {
+      "idx": 2,
+      "kind": "text",
+      "name": "right-main"
+    },
+    "footnote-main": {
+      "idx": 3,
+      "kind": "text",
+      "name": "footnote-main"
+    }
+  },
+  "assets": {},
+  "pptxTemplate": "pptx/default.pptx",
+  "placeholderMap": {
+    "title": "title-main",
+    "left-content": "left-main",
+    "right-content": "right-main",
+    "footnote": "footnote-main"
+  }
+}

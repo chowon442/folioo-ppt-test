@@ -1,0 +1,97 @@
+.slide[data-template="cover"].slide--cover-default {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 74% 28%, rgba(99, 102, 241, 0.18) 0%, transparent 46%),
+        radial-gradient(circle at 22% 82%, rgba(56, 189, 248, 0.12) 0%, transparent 44%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.3), rgba(30, 41, 59, 0.15));
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-panel {
+    position: absolute;
+    inset: 72px 88px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 36px;
+    background: rgba(15, 23, 42, 0.62);
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-accent--stripe {
+    position: absolute;
+    left: 112px;
+    top: 116px;
+    width: 6px;
+    height: 102px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #38bdf8 0%, #818cf8 100%);
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-accent--orb {
+    position: absolute;
+    right: 124px;
+    top: 126px;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: #38bdf8;
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 780px;
+    padding: 0 124px;
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-title,
+.slide[data-template="cover"].slide--cover-default .cover-subtitle,
+.slide[data-template="cover"].slide--cover-default .cover-author {
+    display: block;
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-title > p,
+.slide[data-template="cover"].slide--cover-default .cover-subtitle > p,
+.slide[data-template="cover"].slide--cover-default .cover-author > p {
+    margin: 0;
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-title {
+    margin-bottom: 22px;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #f8fafc;
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-subtitle {
+    margin-bottom: 34px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-width: 34em;
+}
+
+.slide[data-template="cover"].slide--cover-default .cover-author {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #94a3b8;
+    background: rgba(15, 23, 42, 0.38);
+}

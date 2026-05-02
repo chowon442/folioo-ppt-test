@@ -1,0 +1,80 @@
+.slide[data-template="quote"].slide--quote-default {
+    background: linear-gradient(90deg, #0f172a 0%, #172554 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 22%, rgba(56, 189, 248, 0.16) 0%, transparent 42%),
+        radial-gradient(circle at 82% 76%, rgba(129, 140, 248, 0.12) 0%, transparent 44%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.24), rgba(23, 37, 84, 0.18));
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-panel {
+    position: absolute;
+    inset: 96px 118px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 38px;
+    background: rgba(15, 23, 42, 0.72);
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-rule {
+    position: absolute;
+    left: 160px;
+    top: 136px;
+    width: 6px;
+    height: 448px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #38bdf8 0%, #818cf8 100%);
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 840px;
+    padding: 0 116px 0 188px;
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-kicker,
+.slide[data-template="quote"].slide--quote-default .quote-text,
+.slide[data-template="quote"].slide--quote-default .quote-attribution {
+    display: block;
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-kicker > p,
+.slide[data-template="quote"].slide--quote-default .quote-text > p,
+.slide[data-template="quote"].slide--quote-default .quote-attribution > p {
+    margin: 0;
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-kicker {
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #38bdf8;
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-text {
+    margin-bottom: 26px;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.42;
+    color: #f8fafc;
+}
+
+.slide[data-template="quote"].slide--quote-default .quote-attribution {
+    font-size: 16px;
+    line-height: 1.45;
+    color: #cbd5e1;
+}

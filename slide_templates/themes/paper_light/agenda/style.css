@@ -1,0 +1,98 @@
+/* paper_light: 좌 제목 / 우 목록 2분할 */
+.slide[data-template="agenda"].slide--agenda-split {
+    background: #fafaf9;
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.06) 0%, transparent 45%);
+    pointer-events: none;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-split {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(280px, 38%) 1fr;
+    width: 100%;
+    min-height: 100%;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-split__title {
+    display: flex;
+    align-items: center;
+    padding: 48px 40px 48px 52px;
+    border-right: 1px solid #e7e5e4;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-title {
+    font-size: clamp(26px, 2.8vw, 34px);
+    font-weight: 800;
+    color: #1c1917;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-split__list {
+    display: flex;
+    align-items: center;
+    padding: 48px 56px;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-list {
+    width: 100%;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px 14px 22px;
+    min-height: 58px;
+    margin-bottom: 12px;
+    background: transparent;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-item-panel {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid #e7e5e4;
+    box-shadow: 0 1px 4px rgba(28, 25, 23, 0.06);
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-item-marker {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    width: 4px;
+    align-self: stretch;
+    border-radius: 999px;
+    background: #2563eb;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-item-marker p {
+    display: none;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-item:last-child {
+    margin-bottom: 0;
+}
+
+.slide[data-template="agenda"].slide--agenda-split .agenda-item-text,
+.slide[data-template="agenda"].slide--agenda-split .agenda-item-text p {
+    position: relative;
+    z-index: 1;
+    font-size: 17px;
+    font-weight: 600;
+    color: #44403c;
+    margin: 0;
+}

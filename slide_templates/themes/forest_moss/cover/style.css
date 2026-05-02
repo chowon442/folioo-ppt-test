@@ -1,0 +1,93 @@
+.slide[data-template="cover"].slide--cover-nature {
+    background: linear-gradient(135deg, #052e16 0%, #064e3b 48%, #022c22 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 72% 28%, rgba(52, 211, 153, 0.2) 0%, transparent 48%),
+        radial-gradient(circle at 20% 84%, rgba(16, 185, 129, 0.12) 0%, transparent 44%);
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-panel {
+    position: absolute;
+    inset: 34px 32px 34px 34px;
+    border: 1px solid rgba(110, 231, 183, 0.24);
+    border-radius: 22px;
+    background: rgba(2, 44, 34, 0.34);
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-accent--stripe {
+    position: absolute;
+    left: 74px;
+    top: 88px;
+    width: 6px;
+    height: 118px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #6ee7b7 0%, #059669 100%);
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-accent--orb {
+    position: absolute;
+    right: 118px;
+    top: 104px;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #6ee7b7;
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-content {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    max-width: 760px;
+    padding: 58px 88px 58px 104px;
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-title,
+.slide[data-template="cover"].slide--cover-nature .cover-subtitle,
+.slide[data-template="cover"].slide--cover-nature .cover-author {
+    display: block;
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-title > p,
+.slide[data-template="cover"].slide--cover-nature .cover-subtitle > p,
+.slide[data-template="cover"].slide--cover-nature .cover-author > p {
+    margin: 0;
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-title {
+    margin-bottom: 18px;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: -0.03em;
+    color: #ecfdf5;
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-subtitle {
+    margin-bottom: 34px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #a7f3d0;
+    max-width: 34em;
+}
+
+.slide[data-template="cover"].slide--cover-nature .cover-author {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid #047857;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #d1fae5;
+    background: rgba(6, 78, 59, 0.48);
+}

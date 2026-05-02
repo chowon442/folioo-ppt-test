@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/slidehtml.manifest.schema.json",
+  "title": "SlideHTML DSL v1 Template Manifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "dsl",
+    "version",
+    "templateId",
+    "slide",
+    "allowedKinds",
+    "defaultExport",
+    "roles",
+    "pptxTemplate",
+    "placeholders",
+    "placeholderMap"
+  ],
+  "properties": {
+    "dsl": { "const": "slidehtml/v1" },
+    "version": { "type": "string" },
+    "templateId": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "slide": {
+      "type": "object",
+      "required": ["width", "height", "grid"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 320 },
+        "height": { "type": "integer", "minimum": 180 },
+        "grid": { "type": "integer", "minimum": 1 },
+        "safeArea": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "allowedKinds": {
+      "type": "array",
+      "items": {
+        "enum": ["layout", "group", "text", "shape", "image", "chart", "table", "line", "svg", "flatten", "notes"]
+      }
+    },
+    "allowedRoles": { "type": "array", "items": { "type": "string" } },
+    "allowedClasses": { "type": "array", "items": { "type": "string" } },
+    "defaultExport": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": ["layout", "group", "text", "shape", "image", "chart", "table", "line", "svg", "flatten", "notes"]
+          },
+          "required": { "type": "boolean" },
+          "fit": { "enum": ["none", "shrink", "truncate", "clip", "split"] },
+          "maxLines": { "type": "integer", "minimum": 1 },
+          "minFont": { "type": "integer", "minimum": 1 },
+          "maxFont": { "type": "integer", "minimum": 1 },
+          "maxLength": { "type": "integer", "minimum": 1 },
+          "maxItems": { "type": "integer", "minimum": 1 },
+          "tokenClass": { "type": "string" },
+          "export": { "type": "string" },
+          "placeholder": { "type": "string" },
+          "valign": { "enum": ["top", "middle", "bottom"] },
+          "allowedChildRoles": { "type": "array", "items": { "type": "string" } },
+          "allowedChildTags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["path", "kind"],
+        "properties": {
+          "path": { "type": "string" },
+          "kind": { "type": "string" }
+        }
+      }
+    },
+    "chartTemplates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["kind"],
+        "properties": {
+          "kind": { "type": "string" },
+          "description": { "type": "string" },
+          "style": { "type": "object" }
+        }
+      }
+    },
+    "pptxTemplate": { "type": "string", "minLength": 1 },
+    "placeholderMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "type": "string" }
+    },
+    "chartStyleTemplate": { "type": "string" },
+    "tableStyleTemplate": { "type": "object" },
+    "roleConstraints": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": ["layout", "group", "text", "shape", "image", "chart", "table", "line", "svg", "flatten", "notes"]
+          },
+          "required": { "type": "boolean" },
+          "fit": { "enum": ["none", "shrink", "truncate", "clip", "split"] },
+          "maxLines": { "type": "integer", "minimum": 1 },
+          "minFont": { "type": "integer", "minimum": 1 },
+          "maxFont": { "type": "integer", "minimum": 1 },
+          "maxLength": { "type": "integer", "minimum": 1 },
+          "maxItems": { "type": "integer", "minimum": 1 },
+          "tokenClass": { "type": "string" },
+          "export": { "type": "string" },
+          "placeholder": { "type": "string" },
+          "valign": { "enum": ["top", "middle", "bottom"] },
+          "allowedChildRoles": { "type": "array", "items": { "type": "string" } },
+          "allowedChildTags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "placeholders": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["idx", "kind"],
+        "properties": {
+          "idx": { "type": "integer", "minimum": 0 },
+          "kind": { "enum": ["text", "image", "chart", "table"] },
+          "name": { "type": "string" }
+        }
+      }
+    }
+  }
+}

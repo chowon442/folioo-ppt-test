@@ -1,0 +1,103 @@
+.slide[data-template="timeline"] {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 48px 60px;
+}
+
+.slide[data-template="timeline"] .tl-header {
+    margin-bottom: 40px;
+}
+
+.slide[data-template="timeline"] .tl-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.slide[data-template="timeline"] .tl-track {
+    flex: 1;
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    position: relative;
+}
+
+.slide[data-template="timeline"] .tl-track-line {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #a78bfa, #6366f1);
+    opacity: 0.4;
+}
+
+.slide[data-template="timeline"] .tl-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding-top: 36px;
+}
+
+.slide[data-template="timeline"] .tl-dot {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #6366f1;
+    border: 3px solid #0f172a;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+    z-index: 1;
+}
+
+.slide[data-template="timeline"] .tl-card {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+    padding: 20px;
+}
+
+.slide[data-template="timeline"] .tl-card-panel {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+}
+
+.slide[data-template="timeline"] .tl-date,
+.slide[data-template="timeline"] .tl-role,
+.slide[data-template="timeline"] .tl-desc {
+    position: relative;
+    z-index: 1;
+}
+
+.slide[data-template="timeline"] .tl-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: #818cf8;
+    letter-spacing: 0.02em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.slide[data-template="timeline"] .tl-role {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f1f5f9;
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.slide[data-template="timeline"] .tl-desc {
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.6;
+}

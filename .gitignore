@@ -1,0 +1,83 @@
+# --- 비밀·로컬 설정 ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-wheel-metadata/
+
+# --- 가상환경 ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- 테스트·품질 도구 ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
+.nox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+
+# --- Playwright(테스트 리포트 등) ---
+test-results/
+playwright-report/
+playwright/.cache/
+
+# --- 프로젝트·도구 캐시(레포에 올리지 않음) ---
+.tmp/
+.deps/
+.codex
+.codex_deps/
+
+# --- IDE / 에디터 ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# --- OS ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# --- 기타 ---
+*.log
+*.tmp
+.cache/

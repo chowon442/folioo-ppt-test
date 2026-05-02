@@ -1,0 +1,488 @@
+{% extends "base.html" %}
+
+{% block title %}슬라이드 템플릿 — SlideForge{% endblock %}
+
+{% block head %}
+{% for block in gallery_theme_css %}
+<style type="text/css" data-gallery-theme="{{ block.theme_id }}">{{ block.css | safe }}</style>
+{% endfor %}
+<style>
+    .template-gallery-page {
+        padding-top: 56px;
+        min-height: 100vh;
+        background: #0a0e1a;
+    }
+    .template-gallery-inner {
+        width: 100%;
+        max-width: min(1400px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 32px clamp(16px, 3vw, 48px) 64px;
+        box-sizing: border-box;
+    }
+    .template-gallery-intro {
+        margin-bottom: 32px;
+    }
+    .template-gallery-intro h1 {
+        font-size: clamp(22px, 2.5vw, 28px);
+        font-weight: 800;
+        color: #f8fafc;
+        letter-spacing: -0.02em;
+        margin-bottom: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 12px 16px;
+    }
+    .template-count-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        background: rgba(99, 102, 241, 0.18);
+        color: #a5b4fc;
+        letter-spacing: 0.02em;
+    }
+    .template-gallery-intro p {
+        font-size: 15px;
+        line-height: 1.65;
+        color: #64748b;
+        max-width: 52em;
+    }
+    .template-gallery-intro p strong {
+        color: #94a3b8;
+        font-weight: 600;
+    }
+    .template-empty-state {
+        padding: 28px 24px;
+        border-radius: 16px;
+        background: rgba(127, 29, 29, 0.2);
+        border: 1px solid rgba(248, 113, 113, 0.35);
+        margin-bottom: 32px;
+    }
+    .template-empty-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #fecaca;
+        margin-bottom: 12px;
+    }
+    .template-empty-body,
+    .template-empty-path,
+    .template-empty-hint {
+        font-size: 14px;
+        line-height: 1.65;
+        color: #94a3b8;
+        margin-bottom: 10px;
+    }
+    .template-empty-path code,
+    .template-empty-body code,
+    .template-empty-hint code {
+        font-size: 12px;
+        color: #a5b4fc;
+        word-break: break-all;
+    }
+
+    .theme-picker-view {
+        margin-top: 8px;
+    }
+    .theme-picker-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+    .theme-picker-card {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 22px 22px 20px;
+        border-radius: 16px;
+        background: #111827;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        cursor: pointer;
+        transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+        font: inherit;
+        color: inherit;
+    }
+    .theme-picker-card:hover {
+        border-color: rgba(99, 102, 241, 0.45);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+        background: #141c2e;
+    }
+    .theme-picker-card:focus-visible {
+        outline: 2px solid #818cf8;
+        outline-offset: 2px;
+    }
+    .theme-picker-card--active {
+        border-color: rgba(99, 102, 241, 0.65);
+        box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.35);
+        background: rgba(99, 102, 241, 0.08);
+    }
+    .theme-picker-card-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: #f1f5f9;
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+    }
+    .theme-picker-card-id {
+        font-family: ui-monospace, monospace;
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: rgba(56, 189, 248, 0.12);
+        color: #7dd3fc;
+        display: inline-block;
+        margin-bottom: 12px;
+    }
+    .theme-picker-card-desc {
+        font-size: 14px;
+        line-height: 1.55;
+        color: #94a3b8;
+        margin-bottom: 14px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .theme-picker-card-meta {
+        font-size: 13px;
+        font-weight: 600;
+        color: #818cf8;
+    }
+
+    .theme-detail-below {
+        margin-top: 40px;
+        padding-top: 36px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .theme-detail-placeholder {
+        font-size: 15px;
+        line-height: 1.65;
+        color: #64748b;
+        padding: 20px 0 8px;
+    }
+    .theme-panels-wrap.hidden {
+        display: none !important;
+    }
+    .theme-detail-panel {
+        margin-bottom: 0;
+    }
+    .theme-detail-panel.hidden {
+        display: none !important;
+    }
+    .theme-section-head {
+        margin-bottom: 28px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .theme-section-head h2 {
+        font-size: clamp(20px, 2.2vw, 24px);
+        font-weight: 800;
+        color: #f1f5f9;
+        letter-spacing: -0.02em;
+        margin-bottom: 10px;
+    }
+    .theme-section-head .theme-id-badge {
+        display: inline-block;
+        font-family: ui-monospace, monospace;
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: rgba(56, 189, 248, 0.12);
+        color: #7dd3fc;
+        margin-bottom: 12px;
+    }
+    .theme-section-desc {
+        font-size: 15px;
+        line-height: 1.65;
+        color: #94a3b8;
+        margin-bottom: 8px;
+    }
+    .theme-slide-meta {
+        font-size: 13px;
+        color: #64748b;
+    }
+
+    .slide-kind-card {
+        margin-bottom: 40px;
+        padding: clamp(18px, 2.5vw, 28px);
+        border-radius: 16px;
+        background: #111827;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .slide-kind-card:last-child {
+        margin-bottom: 0;
+    }
+    .slide-kind-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-bottom: 8px;
+    }
+    .template-id-badge {
+        display: inline-block;
+        font-family: ui-monospace, monospace;
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: rgba(99, 102, 241, 0.15);
+        color: #a5b4fc;
+        margin-bottom: 10px;
+    }
+    .template-card-desc {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #94a3b8;
+    }
+    .template-slots {
+        margin-top: 14px;
+        font-size: 13px;
+        color: #64748b;
+    }
+    .template-slots strong {
+        color: #94a3b8;
+        font-weight: 600;
+    }
+    .template-slots ul {
+        margin: 8px 0 0 18px;
+        list-style: disc;
+    }
+    .template-slide-preview {
+        position: relative;
+        width: 100%;
+        container-type: inline-size;
+        overflow: hidden;
+        border-radius: 8px;
+        aspect-ratio: 1280 / 720;
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .template-slide-preview-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1280px;
+        height: 720px;
+        transform-origin: top left;
+        transform: scale(calc(100cqw / 1280px));
+    }
+    .template-gallery-page .template-slide-preview-inner .slide-wrapper {
+        position: relative;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+        border-radius: 4px;
+        overflow: hidden;
+        width: 1280px;
+        height: 720px;
+    }
+    @supports not (container-type: inline-size) {
+        .template-slide-preview {
+            aspect-ratio: auto;
+            min-height: 200px;
+            overflow-x: auto;
+        }
+        .template-slide-preview-inner {
+            transform: none;
+            position: relative;
+            width: 1280px;
+            height: 720px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<nav class="topbar">
+    <div class="topbar-inner">
+        <a href="/" class="topbar-brand">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="3" stroke="#818cf8" stroke-width="2"/><rect x="5" y="7" width="8" height="2" rx="1" fill="#818cf8"/><rect x="5" y="11" width="14" height="2" rx="1" fill="#475569"/><rect x="5" y="15" width="11" height="2" rx="1" fill="#475569"/></svg>
+            <span class="topbar-title">SlideForge</span>
+        </a>
+        <a href="/template" class="btn-export topbar-nav-active" aria-current="page">템플릿</a>
+    </div>
+</nav>
+
+<div class="template-gallery-page">
+    <div class="template-gallery-inner">
+        {% set ns = namespace(kinds=0) %}
+        {% for t in themes %}
+            {% set ns.kinds = ns.kinds + t.slides|length %}
+        {% endfor %}
+
+        <header class="template-gallery-intro" id="template-gallery-intro">
+            <h1>
+                디자인 템플릿
+                <span class="template-count-pill">테마 {{ themes|length }}개 · 슬라이드 종류 {{ ns.kinds }}개</span>
+            </h1>
+            <p>
+                <strong>템플릿(테마)</strong>을 선택하면 아래에 포함된 <strong>슬라이드 종류</strong>와 미리보기가 이어서 표시됩니다. 새 테마는
+                <code style="font-size:13px;color:#818cf8;">slide_templates/themes/&lt;theme_id&gt;/theme.json</code>
+                과 슬라이드 폴더로 추가할 수 있습니다.
+            </p>
+        </header>
+
+        {% if themes|length == 0 %}
+        <section class="template-empty-state" role="status">
+            <p class="template-empty-title">불러온 테마가 없습니다</p>
+            <p class="template-empty-body">
+                서버가 읽는 <code>slide_templates</code> 경로에 <code>themes/&lt;id&gt;/theme.json</code> 이 없거나, 실행 위치·환경 변수로 다른 폴더를 보고 있을 수 있습니다.
+            </p>
+            <p class="template-empty-path"><strong>현재 경로</strong> <code>{{ slide_templates_dir }}</code></p>
+            <p class="template-empty-hint">프로젝트 루트에서 서버를 실행하거나 <code>.env</code>의 <code>SLIDE_TEMPLATES_DIR</code> 를 실제 <code>slide_templates</code> 폴더로 맞춰 주세요.</p>
+        </section>
+        {% else %}
+
+        <div class="theme-picker-view" id="theme-picker-view" role="region" aria-label="템플릿 선택">
+            <div class="theme-picker-grid">
+                {% for theme_row in themes %}
+                {% set th = theme_row.theme %}
+                <button
+                    type="button"
+                    class="theme-picker-card"
+                    data-theme-id="{{ th.theme_id }}"
+                    data-theme-name="{{ th.name | e }}"
+                >
+                    <div class="theme-picker-card-title">{{ th.name }}</div>
+                    <div class="theme-picker-card-id">{{ th.theme_id }}</div>
+                    <p class="theme-picker-card-desc">{{ th.description }}</p>
+                    <div class="theme-picker-card-meta">슬라이드 종류 {{ theme_row.slides|length }}개</div>
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="theme-detail-below" id="theme-detail-below">
+            <p class="theme-detail-placeholder" id="theme-detail-placeholder">
+                위에서 템플릿을 선택하면 포함된 슬라이드 종류가 여기에 표시됩니다.
+            </p>
+            <div class="theme-panels-wrap hidden" id="theme-panels-wrap" aria-live="polite">
+                {% for theme_row in themes %}
+                {% set th = theme_row.theme %}
+                <section
+                    class="theme-detail-panel hidden"
+                    data-theme-panel="{{ th.theme_id }}"
+                    id="theme-panel-{{ th.theme_id }}"
+                >
+                    <header class="theme-section-head">
+                        <h2>{{ th.name }}</h2>
+                        <div class="theme-id-badge">{{ th.theme_id }}</div>
+                        <p class="theme-section-desc">{{ th.description }}</p>
+                        <p class="theme-slide-meta">포함 슬라이드 종류 {{ theme_row.slides|length }}개</p>
+                    </header>
+                    {% for item in theme_row.slides %}
+                    {% set m = item.manifest %}
+                    <article class="slide-kind-card">
+                        <h3>{{ m.name }}</h3>
+                        <div class="template-id-badge">슬라이드 종류: {{ m.template_id }}</div>
+                        <p class="template-card-desc">{{ m.description }}</p>
+                        {% if m.slots %}
+                        <div class="template-slots">
+                            <strong>슬롯</strong>
+                            <ul>
+                                {% for slot_name in m.slots %}
+                                <li><code style="font-size:12px;color:#a5b4fc;">{{ slot_name }}</code></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        <div class="template-slide-preview">
+                            <div class="template-slide-preview-inner">
+                                <div class="slide-wrapper theme-gallery-scope--{{ th.theme_id }}">
+                                    {{ item.html | safe }}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </section>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    var picker = document.getElementById("theme-picker-view");
+    var placeholder = document.getElementById("theme-detail-placeholder");
+    var panelsWrap = document.getElementById("theme-panels-wrap");
+    var below = document.getElementById("theme-detail-below");
+    if (!picker || !panelsWrap) return;
+
+    var panels = document.querySelectorAll(".theme-detail-panel");
+    var cards = document.querySelectorAll(".theme-picker-card");
+
+    function escapeSelector(id) {
+        if (typeof CSS !== "undefined" && CSS.escape) return CSS.escape(id);
+        return id.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+    }
+
+    function setActiveTheme(themeId) {
+        var panel = document.querySelector(
+            '.theme-detail-panel[data-theme-panel="' + escapeSelector(themeId) + '"]'
+        );
+        if (!panel) return;
+
+        if (placeholder) placeholder.classList.add("hidden");
+        panelsWrap.classList.remove("hidden");
+
+        panels.forEach(function (p) {
+            var on = p.getAttribute("data-theme-panel") === themeId;
+            p.classList.toggle("hidden", !on);
+        });
+
+        cards.forEach(function (btn) {
+            var id = btn.getAttribute("data-theme-id");
+            btn.classList.toggle("theme-picker-card--active", id === themeId);
+            btn.setAttribute("aria-pressed", id === themeId ? "true" : "false");
+        });
+
+        try {
+            history.replaceState(null, "", "?theme=" + encodeURIComponent(themeId));
+        } catch (e) {}
+
+        if (below) {
+            below.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+    }
+
+    cards.forEach(function (btn) {
+        btn.setAttribute("aria-pressed", "false");
+        btn.addEventListener("click", function () {
+            setActiveTheme(btn.getAttribute("data-theme-id"));
+        });
+    });
+
+    window.addEventListener("popstate", function () {
+        var params = new URLSearchParams(location.search);
+        var t = params.get("theme");
+        if (t && document.querySelector('.theme-detail-panel[data-theme-panel="' + escapeSelector(t) + '"]')) {
+            setActiveTheme(t);
+        } else {
+            if (placeholder) placeholder.classList.remove("hidden");
+            panelsWrap.classList.add("hidden");
+            panels.forEach(function (p) {
+                p.classList.add("hidden");
+            });
+            cards.forEach(function (btn) {
+                btn.classList.remove("theme-picker-card--active");
+                btn.setAttribute("aria-pressed", "false");
+            });
+            try {
+                history.replaceState(null, "", location.pathname);
+            } catch (e2) {}
+        }
+    });
+
+    var params = new URLSearchParams(location.search);
+    var initial = params.get("theme");
+    if (initial && document.querySelector('.theme-detail-panel[data-theme-panel="' + escapeSelector(initial) + '"]')) {
+        setActiveTheme(initial);
+    }
+})();
+</script>
+{% endblock %}

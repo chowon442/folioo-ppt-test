@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}SlideForge - AI 슬라이드 생성기{% endblock %}
+
+{% block body %}
+<nav class="topbar">
+    <div class="topbar-inner">
+        <a href="/" class="topbar-brand">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="3" stroke="#818cf8" stroke-width="2"/><rect x="5" y="7" width="8" height="2" rx="1" fill="#818cf8"/><rect x="5" y="11" width="14" height="2" rx="1" fill="#475569"/><rect x="5" y="15" width="11" height="2" rx="1" fill="#475569"/></svg>
+            <span class="topbar-title">SlideForge</span>
+        </a>
+        <a href="/template" class="btn-export">템플릿</a>
+        <div id="topbar-actions" class="topbar-actions hidden">
+            <button id="export-pdf-btn" class="btn-export">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12V14H12V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 2V10M8 10L5 7M8 10L11 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                PDF
+            </button>
+            <button id="export-pptx-btn" class="btn-export">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12V14H12V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 2V10M8 10L5 7M8 10L11 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                PPTX
+            </button>
+            <a id="fullscreen-link" href="#" target="_blank" class="btn-export">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 6V3C2 2.44772 2.44772 2 3 2H6M10 2H13C13.5523 2 14 2.44772 14 3V6M14 10V13C14 13.5523 13.5523 14 13 14H10M6 14H3C2.44772 14 2 13.5523 2 13V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                전체화면
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div id="landing-view" class="landing-view">
+    <div class="landing-content">
+        <div id="landing-step-input" class="landing-step">
+        <div class="landing-hero">
+            <div class="hero-badge">AI-Powered Presentation</div>
+            <h1>포트폴리오를<br>슬라이드로 변환하세요</h1>
+            <p>텍스트를 입력하면 AI가 디자인된 프레젠테이션 슬라이드를 자동으로 생성합니다.<br>PDF, PPTX로 바로 내보낼 수 있습니다.</p>
+        </div>
+        <div class="input-card">
+            <div class="theme-row">
+                <div class="theme-row-header">
+                    <label class="theme-row-label">디자인 템플릿 (테마)</label>
+                    <a href="/template" class="theme-row-link">포함 슬라이드 종류</a>
+                </div>
+                <p class="theme-row-hint">색·타이포·레이아웃 톤이 묶인 세트입니다. 각 테마마다 표지·기술·프로젝트 등 여러 <strong>슬라이드 종류</strong>가 정의되어 있습니다.</p>
+                <div id="theme-options" class="theme-options" role="radiogroup" aria-label="디자인 템플릿 선택"></div>
+            </div>
+            <div class="input-card-header">
+                <label for="portfolio-text">포트폴리오 내용 입력</label>
+                <span class="char-count"><span id="char-count">0</span> / 5,000자</span>
+            </div>
+            <textarea
+                id="portfolio-text"
+                placeholder="프로젝트 경험, 기술 스택, 성과 등을 자유롭게 작성해주세요.
+
+예시:
+이름: 홍길동
+직무: 풀스택 개발자 (3년차)
+
+프로젝트 1 - AI 포트폴리오 생성기
+설명: 텍스트형 포트폴리오를 시각 슬라이드로 자동 변환하는 서비스
+기술스택: Python, FastAPI, OpenAI API, Playwright
+역할: 백엔드 설계 및 프론트엔드 구현
+기간: 2025.01 ~ 2025.03
+성과: 슬라이드 생성 시간 30초, 3종 템플릿 지원
+
+프로젝트 2 - 실시간 채팅 플랫폼
+설명: WebSocket 기반 실시간 채팅 및 파일 공유 서비스
+기술스택: Node.js, Socket.io, React, MongoDB
+역할: 실시간 통신 아키텍처 설계
+기간: 2024.06 ~ 2024.12
+성과: 동시접속 1000명 지원, 메시지 지연 50ms 이하"
+                maxlength="5000"
+            ></textarea>
+            <div class="input-card-footer">
+                <div class="footer-hint">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#64748b" stroke-width="1.2"/><path d="M7 4V7.5M7 9.5V10" stroke="#64748b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    프로젝트별로 이름, 설명, 기술스택, 역할, 성과를 구분하면 더 좋은 결과를 얻을 수 있습니다.
+                </div>
+                <button id="generate-btn" type="button" class="btn-generate">
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L11 6.5L16 7.5L12.5 11L13.5 16L9 13.5L4.5 16L5.5 11L2 7.5L7 6.5L9 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                    1단계: 플랜 만들기
+                </button>
+            </div>
+        </div>
+        </div>
+
+        <div id="plan-review" class="plan-review hidden" aria-live="polite">
+            <div class="plan-review-card">
+                <div class="plan-review-head">
+                    <span class="plan-step-pill">1단계 · 계획 확인</span>
+                    <h2 class="plan-review-title">생성 플랜</h2>
+                    <p class="plan-review-lead">전체 개요와 슬라이드 순서를 확인한 뒤, <strong>2단계 실제 생성</strong>을 시작하세요.</p>
+                </div>
+                <div id="plan-outline" class="plan-outline"></div>
+                <div class="plan-table-scroll">
+                    <table class="plan-table" aria-label="슬라이드 플랜">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">종류</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">목적</th>
+                                <th scope="col">핵심(줄당 1개)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="plan-table-body"></tbody>
+                    </table>
+                </div>
+                <div class="plan-actions">
+                    <button type="button" id="plan-cancel-btn" class="btn-plan btn-plan-secondary">← 입력으로</button>
+                    <button type="button" id="plan-regenerate-btn" class="btn-plan btn-plan-secondary">다시 추천</button>
+                    <button type="button" id="plan-confirm-btn" class="btn-plan btn-plan-primary">2단계: 확정하고 생성</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="planning-overlay" class="planning-overlay hidden" aria-busy="true">
+    <div class="planning-modal">
+        <div class="planning-spinner"></div>
+        <p class="planning-text">플랜을 작성하는 중…</p>
+    </div>
+</div>
+
+<div id="progress-overlay" class="progress-overlay hidden" aria-hidden="true">
+    <div class="progress-modal" role="status" aria-live="polite" aria-atomic="true">
+        <div class="progress-modal-header">
+            <div class="progress-spinner" aria-hidden="true"></div>
+            <div class="progress-modal-text">
+                <h3 id="progress-title">슬라이드를 생성하고 있습니다</h3>
+                <p id="progress-text">AI가 포트폴리오를 분석 중...</p>
+                <p id="progress-hint" class="progress-hint">미리보기는 선명하게 유지됩니다. 하단에서 진행만 확인하세요.</p>
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <div id="progress-slides" class="progress-slides"></div>
+    </div>
+</div>
+
+<div id="preview-view" class="preview-view hidden">
+    <div class="preview-layout">
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">슬라이드</span>
+                <span id="slide-count-badge" class="slide-count-badge">0</span>
+            </div>
+            <div id="thumbnail-strip" class="thumbnail-strip"></div>
+            <div class="sidebar-footer">
+                <button id="new-btn" class="btn-new">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2V12M2 7H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    새로 만들기
+                </button>
+            </div>
+        </aside>
+        <main class="preview-main">
+            <div class="slide-area">
+                <div id="slide-viewport" class="slide-viewport">
+                    <div id="slide-stage" class="slide-stage"></div>
+                </div>
+            </div>
+            <div class="slide-toolbar">
+                <button id="prev-btn" class="toolbar-nav" disabled>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <span class="toolbar-counter"><span id="slide-index">1</span> / <span id="slide-total">0</span></span>
+                <button id="next-btn" class="toolbar-nav" disabled>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/app.js"></script>
+{% endblock %}

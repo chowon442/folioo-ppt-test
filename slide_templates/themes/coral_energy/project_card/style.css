@@ -1,0 +1,163 @@
+/* coral_energy: 상단 풀폭 배너 + 스트립 메타 + 하단 2단 */
+.slide[data-template="project_card"].slide--pc-banner {
+    background: #1c1917;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-banner,
+.slide[data-template="project_card"].slide--pc-banner .pc-strip,
+.slide[data-template="project_card"].slide--pc-banner .pc-rest {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-banner {
+    padding: 36px 48px 32px;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-banner-panel {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #ea580c 0%, #c2410c 45%, #9a3412 100%);
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-name {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 800;
+    color: #fffbeb;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-strip {
+    padding: 14px 48px;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-strip-panel {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(251, 146, 60, 0.25);
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-role {
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fdba74;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-period {
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    font-weight: 600;
+    color: #d6d3d1;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-rest {
+    flex: 1;
+    padding: 28px 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 0;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-rest-panel {
+    position: absolute;
+    inset: 0;
+    background: #1c1917;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-summary {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    color: #e7e5e4;
+    line-height: 1.65;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-lower {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+    min-height: 0;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-tech-item {
+    position: relative;
+    display: inline-flex;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-tech-chip-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(249, 115, 22, 0.2);
+    border: 1px solid rgba(251, 146, 60, 0.35);
+    border-radius: 8px;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-tech-text {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffedd5;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-tech-text p,
+.slide[data-template="project_card"].slide--pc-banner .pc-highlight-text p {
+    margin: 0;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-highlight-card {
+    position: relative;
+    padding: 10px 14px;
+    min-height: 0;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-highlight-card-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border-left: 4px solid #fb923c;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-highlight-text {
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    color: #d6d3d1;
+}
+
+.slide[data-template="project_card"].slide--pc-banner .pc-highlight-text strong {
+    font-weight: 700;
+    color: #fafaf9;
+}

@@ -1,0 +1,106 @@
+/* forest_moss: 컴팩트 세로 카드 + 연한 연결선 */
+.slide[data-template="timeline"] {
+    background: linear-gradient(180deg, #022c22 0%, #064e3b 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 52px 44px;
+}
+
+.slide[data-template="timeline"] .tl-header {
+    margin-bottom: 22px;
+}
+
+.slide[data-template="timeline"] .tl-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ecfdf5;
+    padding-left: 14px;
+    border-left: 5px solid #34d399;
+}
+
+.slide[data-template="timeline"] .tl-track {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    padding-left: 24px;
+}
+
+.slide[data-template="timeline"] .tl-track-line {
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: rgba(52, 211, 153, 0.35);
+    border-radius: 1px;
+}
+
+.slide[data-template="timeline"] .tl-item {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    position: relative;
+    padding: 0;
+    flex: 0 0 auto;
+}
+
+.slide[data-template="timeline"] .tl-dot {
+    position: absolute;
+    left: -21px;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #10b981;
+    border: 2px solid #022c22;
+    box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.4);
+}
+
+.slide[data-template="timeline"] .tl-card {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    padding: 14px 18px;
+}
+
+.slide[data-template="timeline"] .tl-card-panel {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 78, 59, 0.4);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: 10px;
+}
+
+.slide[data-template="timeline"] .tl-date,
+.slide[data-template="timeline"] .tl-role,
+.slide[data-template="timeline"] .tl-desc {
+    position: relative;
+    z-index: 1;
+}
+
+.slide[data-template="timeline"] .tl-date {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6ee7b7;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.slide[data-template="timeline"] .tl-role {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ecfdf5;
+    display: block;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.slide[data-template="timeline"] .tl-desc {
+    font-size: 13px;
+    color: #a7f3d0;
+    line-height: 1.5;
+}

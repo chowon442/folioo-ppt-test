@@ -1,0 +1,107 @@
+/* forest_moss: 가로 풀폭 밴드(행) 스택 */
+.slide[data-template="skills"].slide--skills-bands {
+    background: linear-gradient(180deg, #022c22 0%, #064e3b 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 48px 44px;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-header {
+    margin-bottom: 22px;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ecfdf5;
+    padding-left: 16px;
+    border-left: 5px solid #34d399;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-bands {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-band {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    flex: 1;
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 0;
+    position: relative;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-group-panel {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 78, 59, 0.35);
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-band__label {
+    width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-right: 1px solid rgba(52, 211, 153, 0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-group-title {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    font-weight: 800;
+    color: #6ee7b7;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-items {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-content: center;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-chip {
+    position: relative;
+    display: inline-flex;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-chip-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 95, 70, 0.45);
+    border: 1px solid rgba(110, 231, 183, 0.25);
+    border-radius: 999px;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-chip-text p {
+    margin: 0;
+}
+
+.slide[data-template="skills"].slide--skills-bands .sk-chip-text {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #d1fae5;
+}

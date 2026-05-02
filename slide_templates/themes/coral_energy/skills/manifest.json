@@ -1,0 +1,90 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "skills",
+  "name": "기술 스택 슬라이드",
+  "description": "기술 역량을 카테고리별 group과 chip text로 정리한다.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "chart",
+    "table",
+    "line",
+    "svg",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "title",
+    "accent",
+    "skill-group",
+    "group-title",
+    "skill-chip",
+    "chip-text"
+  ],
+  "defaultExport": {
+    "layout": "ignore",
+    "group": "native>png",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "svg": "svg>png",
+    "flatten": "svg>png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "title": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true
+    },
+    "accent": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "skill-group": {
+      "kind": "group",
+      "required": true
+    },
+    "group-title": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": true
+    },
+    "skill-chip": {
+      "kind": "group",
+      "required": true
+    },
+    "chip-text": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": true
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    }
+  },
+  "assets": {},
+  "pptxTemplate": "pptx/coral_energy.pptx",
+  "placeholderMap": {
+    "title": "title-main"
+  }
+}

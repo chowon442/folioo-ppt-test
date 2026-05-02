@@ -1,0 +1,97 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "timeline",
+  "name": "타임라인 슬라이드",
+  "description": "경력이나 프로젝트 이력을 시간순으로 나열하는 timeline item 그룹 슬라이드.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "chart",
+    "table",
+    "line",
+    "svg",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "title",
+    "track-line",
+    "timeline-item",
+    "dot",
+    "date",
+    "item-title",
+    "item-body"
+  ],
+  "defaultExport": {
+    "layout": "ignore",
+    "group": "native>png",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "svg": "svg>png",
+    "flatten": "svg>png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "title": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true
+    },
+    "track-line": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "timeline-item": {
+      "kind": "group",
+      "required": true
+    },
+    "dot": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "date": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": true
+    },
+    "item-title": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": true
+    },
+    "item-body": {
+      "kind": "text",
+      "maxLines": 3,
+      "fit": "truncate",
+      "required": true
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    }
+  },
+  "assets": {},
+  "pptxTemplate": "pptx/forest_moss.pptx",
+  "placeholderMap": {
+    "title": "title-main"
+  }
+}

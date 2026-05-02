@@ -1,0 +1,92 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "agenda",
+  "name": "목차 슬라이드",
+  "description": "섹션 제목과 agenda item group 목록으로 발표 흐름을 안내한다.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "chart",
+    "table",
+    "line",
+    "svg",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "background",
+    "title",
+    "agenda-item",
+    "panel",
+    "marker",
+    "item-text"
+  ],
+  "defaultExport": {
+    "layout": "ignore",
+    "group": "native>png",
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "svg": "svg>png",
+    "flatten": "svg>png",
+    "notes": "ignore"
+  },
+  "roles": {
+    "background": {
+      "kind": "flatten",
+      "export": "svg"
+    },
+    "title": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true,
+      "minFontPx": 26,
+      "maxFontPx": 34
+    },
+    "agenda-item": {
+      "kind": "group",
+      "required": true
+    },
+    "panel": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "marker": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "item-text": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": true,
+      "minFontPx": 15,
+      "maxFontPx": 18
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    }
+  },
+  "assets": {},
+  "pptxTemplate": "pptx/paper_light.pptx",
+  "placeholderMap": {
+    "title": "title-main"
+  }
+}

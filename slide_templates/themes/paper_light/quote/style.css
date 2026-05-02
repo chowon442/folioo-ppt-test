@@ -1,0 +1,79 @@
+.slide[data-template="quote"].slide--quote-paper {
+    background: linear-gradient(145deg, #fafaf9 0%, #e0e7ff 56%, #f8fafc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 42%),
+        radial-gradient(circle at 86% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 40%);
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-panel {
+    position: absolute;
+    inset: 92px 124px;
+    border: 1px solid rgba(231, 229, 228, 0.94);
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-rule {
+    position: absolute;
+    left: 160px;
+    top: 132px;
+    width: 6px;
+    height: 456px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #2563eb 0%, #0ea5e9 100%);
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 840px;
+    padding: 0 96px 0 188px;
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-kicker,
+.slide[data-template="quote"].slide--quote-paper .quote-text,
+.slide[data-template="quote"].slide--quote-paper .quote-attribution {
+    display: block;
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-kicker > p,
+.slide[data-template="quote"].slide--quote-paper .quote-text > p,
+.slide[data-template="quote"].slide--quote-paper .quote-attribution > p {
+    margin: 0;
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-kicker {
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #2563eb;
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-text {
+    margin-bottom: 24px;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1c1917;
+}
+
+.slide[data-template="quote"].slide--quote-paper .quote-attribution {
+    font-size: 16px;
+    line-height: 1.45;
+    color: #78716c;
+}

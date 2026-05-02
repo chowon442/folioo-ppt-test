@@ -1,0 +1,80 @@
+.slide[data-template="quote"].slide--quote-forest {
+    background: linear-gradient(100deg, #022c22 0%, #064e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 24%, rgba(110, 231, 183, 0.14) 0%, transparent 42%),
+        radial-gradient(circle at 82% 78%, rgba(16, 185, 129, 0.1) 0%, transparent 44%),
+        linear-gradient(135deg, rgba(2, 44, 34, 0.2), rgba(6, 78, 59, 0.18));
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-panel {
+    position: absolute;
+    inset: 92px 112px;
+    border: 1px solid rgba(110, 231, 183, 0.2);
+    border-radius: 36px;
+    background: rgba(4, 47, 46, 0.72);
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-rule {
+    position: absolute;
+    left: 158px;
+    top: 134px;
+    width: 6px;
+    height: 450px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #34d399 0%, #10b981 100%);
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 840px;
+    padding: 0 112px 0 186px;
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-kicker,
+.slide[data-template="quote"].slide--quote-forest .quote-text,
+.slide[data-template="quote"].slide--quote-forest .quote-from {
+    display: block;
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-kicker > p,
+.slide[data-template="quote"].slide--quote-forest .quote-text > p,
+.slide[data-template="quote"].slide--quote-forest .quote-from > p {
+    margin: 0;
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-kicker {
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #34d399;
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-text {
+    margin-bottom: 26px;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.42;
+    color: #ecfdf5;
+}
+
+.slide[data-template="quote"].slide--quote-forest .quote-from {
+    font-size: 16px;
+    line-height: 1.45;
+    color: #6ee7b7;
+}

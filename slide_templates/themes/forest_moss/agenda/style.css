@@ -1,0 +1,86 @@
+/* forest_moss: 중앙 정렬 + 컴팩트 세로 리스트 */
+.slide[data-template="agenda"].slide--agenda-minimal {
+    background: linear-gradient(160deg, #022c22 0%, #064e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 56px;
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 40%, rgba(52, 211, 153, 0.12) 0%, transparent 55%);
+    pointer-events: none;
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 720px;
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ecfdf5;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid rgba(52, 211, 153, 0.35);
+    display: inline-block;
+    min-width: 60%;
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-list {
+    text-align: left;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0 12px 20px;
+    min-height: 52px;
+    border-bottom: 1px solid rgba(52, 211, 153, 0.12);
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-item-panel {
+    position: absolute;
+    inset: 4px 0;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(52, 211, 153, 0.1);
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-item-marker {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.25);
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-item-marker p {
+    display: none;
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-item-text,
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-item-text p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #d1fae5;
+}
+
+.slide[data-template="agenda"].slide--agenda-minimal .agenda-item:last-child {
+    border-bottom: none;
+}

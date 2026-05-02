@@ -1,0 +1,104 @@
+{
+  "dsl": "slidehtml/v1",
+  "version": "1.0.0",
+  "templateId": "quote",
+  "name": "인용구 슬라이드",
+  "description": "미션·비전·핵심 메시지를 인용구 형식으로 강조한다.",
+  "slide": {
+    "width": 1280,
+    "height": 720,
+    "grid": 4
+  },
+  "allowedKinds": [
+    "layout",
+    "group",
+    "text",
+    "shape",
+    "image",
+    "chart",
+    "table",
+    "line",
+    "svg",
+    "flatten",
+    "notes"
+  ],
+  "allowedRoles": [
+    "title",
+    "quote",
+    "attribution",
+    "background",
+    "accent",
+    "panel",
+    "rule"
+  ],
+  "defaultExport": {
+    "text": "native>png",
+    "shape": "native>svg>png",
+    "image": "native>png",
+    "chart": "native>svg>png",
+    "table": "native>png",
+    "line": "native>png",
+    "svg": "svg>png",
+    "flatten": "svg>png"
+  },
+  "roles": {
+    "title": {
+      "kind": "text",
+      "maxLines": 1,
+      "fit": "shrink",
+      "required": false
+    },
+    "quote": {
+      "kind": "text",
+      "maxLines": 6,
+      "fit": "shrink",
+      "required": true
+    },
+    "attribution": {
+      "kind": "text",
+      "maxLines": 2,
+      "fit": "shrink",
+      "required": false
+    },
+    "background": {
+      "kind": "flatten",
+      "export": "flatten"
+    },
+    "accent": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "panel": {
+      "kind": "shape",
+      "export": "native"
+    },
+    "rule": {
+      "kind": "shape",
+      "export": "native"
+    }
+  },
+  "placeholders": {
+    "title-main": {
+      "idx": 0,
+      "kind": "text",
+      "name": "title-main"
+    },
+    "quote-main": {
+      "idx": 1,
+      "kind": "text",
+      "name": "quote-main"
+    },
+    "attribution-main": {
+      "idx": 2,
+      "kind": "text",
+      "name": "attribution-main"
+    }
+  },
+  "assets": {},
+  "pptxTemplate": "pptx/default.pptx",
+  "placeholderMap": {
+    "title": "title-main",
+    "quote": "quote-main",
+    "attribution": "attribution-main"
+  }
+}

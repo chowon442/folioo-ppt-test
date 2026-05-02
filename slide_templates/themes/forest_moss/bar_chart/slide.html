@@ -1,0 +1,50 @@
+<section class="slide sh-slide" data-template="bar_chart" data-sh-dsl="slidehtml/v1" data-sh-id="slide-bar-chart" data-sh-template="bar_chart" data-sh-size="1280x720">
+    <div class="bc-header" data-sh-id="bar-header" data-sh-kind="layout" data-sh-export="ignore">
+        <p class="bc-title" data-sh-id="bar-title" data-sh-kind="text" data-sh-role="title" data-sh-export="native" data-sh-fit="shrink" data-sh-max-lines="2">비율 시각화</p>
+        <p class="bc-subtitle" data-sh-id="bar-subtitle" data-sh-kind="text" data-sh-role="subtitle" data-sh-export="native" data-sh-fit="shrink" data-sh-max-lines="2">
+            항목별 상대 크기 (최댓값 기준 100%)
+        </p>
+    </div>
+    <div class="bc-stage" data-sh-id="bar-stage" data-sh-kind="layout" data-sh-export="ignore">
+        <div class="bc-panel" data-sh-id="bar-panel" data-sh-kind="shape" data-sh-role="panel" data-sh-shape="round-rect" aria-hidden="true"></div>
+        <div class="bc-chart" data-sh-id="bar-chart" data-sh-kind="chart" data-sh-role="chart" data-sh-export="native" data-sh-chart-kind="bar" data-sh-chart-template="bar-01">
+            <script type="application/json">
+                {
+                    "categories": ["예시 A", "예시 B", "예시 C"],
+                    "series": [
+                        {"name": "비중", "values": [60, 80, 45]}
+                    ],
+                    "options": {
+                        "showLegend": false,
+                        "showDataLabels": true,
+                        "valueFormat": "0"
+                    }
+                }
+            </script>
+            <div class="bc-axis" aria-hidden="true">
+                <span class="bc-axis-line bc-axis-line--y"></span>
+                <span class="bc-axis-line bc-axis-line--x"></span>
+            </div>
+            <div class="bc-bars" aria-label="막대 항목">
+                <div class="bc-row" style="--bar-width: 60%;">
+                    <span class="bc-label">예시 A</span>
+                    <div class="bc-track"><span class="bc-fill"></span></div>
+                    <span class="bc-value">60%</span>
+                </div>
+                <div class="bc-row" style="--bar-width: 80%;">
+                    <span class="bc-label">예시 B</span>
+                    <div class="bc-track"><span class="bc-fill"></span></div>
+                    <span class="bc-value">80%</span>
+                </div>
+                <div class="bc-row" style="--bar-width: 45%;">
+                    <span class="bc-label">예시 C</span>
+                    <div class="bc-track"><span class="bc-fill"></span></div>
+                    <span class="bc-value">45%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="bc-footnote" data-sh-id="bar-footnote" data-sh-kind="text" data-sh-role="footnote" data-sh-export="native" data-sh-fit="shrink" data-sh-max-lines="2">
+        기준·단위 설명
+    </p>
+</section>
